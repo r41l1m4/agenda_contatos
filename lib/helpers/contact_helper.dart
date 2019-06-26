@@ -20,7 +20,7 @@ class ContactHelper {
   Database _db;
 
   Future<Database> get db async {
-    if (db != null) {
+    if (_db != null) {
       return _db;
     } else {
       _db = await initDb();
@@ -108,6 +108,8 @@ class Contact {
   String phone;
   String img;
 
+  Contact();
+
   Contact.fromMap(Map map){
     id = map[idColumn];
     name = map[nameColumn];
@@ -119,18 +121,14 @@ class Contact {
   Map toMap() {
     Map<String, dynamic> map = {
     nameColumn: name,
-    emailColumn:
-    email,
-    phoneColumn:
-    phone,
-    imgColumn:
-    img
+    emailColumn: email,
+    phoneColumn: phone,
+    imgColumn: img
   };
     if(id != null) {
     map[idColumn] = id;
     }
-    return
-    map;
+    return map;
   }
 
   @override
