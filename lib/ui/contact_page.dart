@@ -15,11 +15,6 @@ class _ContactPageState extends State<ContactPage> {
   Contact _editedContact;
 
   @override
-  Widget build(BuildContext context) {
-    return Container();
-  }
-
-  @override
   void initState() {
     super.initState();
 
@@ -28,5 +23,21 @@ class _ContactPageState extends State<ContactPage> {
     }else {
       _editedContact = Contact.fromMap(widget.contact.toMap());
     }
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        backgroundColor: Colors.red,
+        title: Text(_editedContact.name ?? "Novo Contato"),
+        centerTitle: true,
+      ),
+      floatingActionButton: FloatingActionButton(
+          onPressed: () {},
+          child: Icon(Icons.save),
+          backgroundColor: Colors.red,
+      ),
+    );
   }
 }
